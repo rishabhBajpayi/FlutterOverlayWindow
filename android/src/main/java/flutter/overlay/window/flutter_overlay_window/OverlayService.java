@@ -259,8 +259,9 @@ public class OverlayService extends Service implements View.OnTouchListener {
         }
         PendingIntent pendingIntent = PendingIntent.getActivity(this,
                 0, notificationIntent, pendingFlags);
-        final int notifyIcon = getDrawableResourceId("mipmap", "launcher");
+        final int notifyIcon = getDrawableResourceId("mipmap", "ic_launcher");
         Notification notification = new NotificationCompat.Builder(this, OverlayConstants.CHANNEL_ID)
+                .setSilent(true)
                 .setContentTitle(WindowSetup.overlayTitle)
                 .setContentText(WindowSetup.overlayContent)
                 .setSmallIcon(notifyIcon == 0 ? R.drawable.notification_icon : notifyIcon)
